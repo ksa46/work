@@ -1,0 +1,107 @@
+<section id="content" class="clearfix">
+			<div class="main clearfix">
+				<div class="wrapper">
+						<div class="account-create">
+							<div class="pageWrapper clearfix">
+								<div class="page-title">
+									<?php if ($this->addressType == 2) { ?>
+									<h1>Billing Address Information</h1>
+									<?php } else {?>
+									<h1>Shipping Address Information</h1>
+									<?php }?>
+								</div>
+								<?php if (isset($this->address->success)) { ?>
+								<li class="fields">
+								 <h2 class="legend">Your address has been added</h2>
+								</li>
+								
+							<?php } else if ($this->typeError) { ?>
+								<li class="fields">
+								 <h2 class="legend">Invalid address type</h2>
+								</li>
+								
+								<?php } else {?>
+								<form method="post" action="/address/index/t/<?php echo $this->addressType?>" name="registerform" id="register">  
+									<div class="fieldset clearfix">
+									<div class="fieldset clearfix">
+										<input type="hidden" name="create_address" value="1" />
+										<?php if ($this->addressType == 2) { ?>
+										<h2 class="legend">Billing Address Information</h2>
+										<?php } else {?>
+										<h2 class="legend">Shipping Address Information</h2>
+										<?php }?>
+										<div class="pageWrapper clearfix">
+											<ul class="form-list">
+												<li class="fields">
+													<div class="field clearfix">
+
+													<div class="field clearfix">
+														<label for="post_code" class="required"><em>*</em>Post code</label> 
+														<div class="input-box">
+														   <input type="text" name="post_code" id = "post_code" value="<?php echo $this->postcode?>" class="input-text required-entry <?php if (!empty($this->errorMessages['postcode']) && isset($_POST['address']) ) echo 'validation-failed'; ?>" />
+														   	<div class="validation-advice post-code-error" style="">
+																<?php if (isset($this->errorMessages['postcode'])) echo $this->errorMessages['postcode']; ?>
+															</div>
+															<input type="button"  class="button" id ="post-code-find-button" name="post-code-find-button" value="Find my address" />
+														    <select id="postcode-finder-return" name="postcode-finder-return" style="display:none;">
+                                                                <option>Select an address:</option>
+                                                            </select>  
+														</div>
+													</div>
+													
+													<div class="field clearfix">
+														<label for="address1" class="required"><em>*</em>Address1</label> 
+														<div class="input-box">
+															<input type="text"  name="address1" id="address1" value="<?php echo $this->address1?>" class="input-text required-entry <?php if (!empty($this->errorMessages['address1']) && isset($_POST['address'] )) echo 'validation-failed'; ?>"/>  
+															<div class="validation-advice" style="">
+																<?php if (isset($this->errorMessages['address1'])) echo $this->errorMessages['address1']; ?>
+															</div>															
+														</div>
+													</div>
+													<div class="field clearfix">
+														<label for="address2" class="required"><!-- <em>*</em>  -->Address2</label>  
+														<div class="input-box">
+															<input type="text" class="input-text <?php if (!empty($this->errorMessages['address2']) && isset($_POST['address'] ) ) echo 'validation-failed'; ?>" name="address2" id="address2"  value="<?php echo $this->address2;?>" class="input-text required-entry" /> 
+															<div class="validation-advice" style="">
+																<?php if (isset($this->errorMessages['address2'])) echo $this->errorMessages['address2']; ?>
+															</div>		
+														</div>
+													</div>
+													<div class="field clearfix">
+														<label for="city" class="required"><em>*</em>Town/City</label>
+														<div class="input-box">
+															<input type="text" name="city" id="city" value="<?php echo $this->city; ?>" title="City" class="input-text required-entry <?php if (!empty($this->errorMessages['city']) && isset($_POST['address'] )) echo 'validation-failed'; ?>" id="city" />
+															<div class="validation-advice" style="">
+																<?php if (isset($this->errorMessages['city'])) echo $this->errorMessages['city']; ?>
+															</div>		
+														</div>
+													</div>
+													<div class="field clearfix">
+														<label for="region_id" class="required"> <!-- <em>*</em>  --> County</label>
+														<div class="input-box">
+															<input type="text" id="region" name="county" value="<?php echo $this->county?>" title="State/Province" class="input-text <?php //if (isset($this->errorMessages['county']) && isset($_POST['address'] )) echo 'validation-failed'; ?>"/>
+															<div class="validation-advice" style="">
+																<?php if (isset($this->errorMessages['county'])) echo $this->errorMessages['county']; ?>
+															</div>	
+														</div>
+													</div>
+												</li>
+											</ul>
+											<input type="hidden" name="default_billing" value="1" />
+											<input type="hidden" name="default_shipping" value="1" />
+											<input type="hidden" name="address_id" id="address_id"value="" />
+											<input type="hidden" name="address_type" id="address_type"value="<?php echo $this->addressType?>" />
+										</div>
+									</div>
+									<div class="buttons-set form-buttons clearfix">
+										<p class="required">* Required Fields</p>
+										<p class="back-link"><a href="../index.php"><small>&laquo; </small>Back</a></p>
+										<input type="submit"  class="button" name="address" value="Add address" />
+									</div>
+								</form>
+								<?php  } ?>
+							</div>
+						</div>
+				</div>
+			</div>
+		</section>

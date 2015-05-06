@@ -1,0 +1,79 @@
+<?php
+
+$card_number = empty($this->postVariables['card_number']) ? '' : $this->postVariables['card_number'];
+$card_code   = empty($this->postVariables['card_code']) ? '' : $this->postVariables['card_code'];
+$cardOwner   = empty($this->postVariables['cardowner']) ? '' : $this->postVariables['cardowner'];
+$cardName    = empty($this->postVariables['card_name']) ? '' : $this->postVariables['card_name'];
+?> 
+<section id="content" class="clearfix">
+	<div class="main col1-layout clearfix">
+		<div class="wrapper">
+			<div class="col-main clearfix">
+				<div class="account-create">
+					<div class="pageWrapper">
+						<div class="page-title">
+							<h1>Register my Card</h1>
+						</div>
+						<form action="/card/register" method="post" id="form-validate" enctype="multipart/form-data">
+							<div class="fieldset clearfix">
+								<input type="hidden" name="success_url" value="" />
+								<input type="hidden" name="error_url" value="" />
+								<h2 class="legend">Card Details</h2>
+								<div class="pageWrapper clearfix">
+									<ul class="form-list">
+										<li class="fields" id="card-details">
+											<div class="field clearfix">
+												<label for="" class="">Who's the card for?</label>
+												<div class="input-box">
+													<select type="text" name="cardowner" id="cardowner" title="Who is the card for?" class="input-text required-entry">
+													<option value="1" >Myself</option>
+													<option value="2" <?php if ($cardOwner == 2 ) echo ' selected="selected"';?>>It's a gift for someone else</option>
+													</select>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="card_number" class="required"><em>*</em>Your Card Number</label>
+												<div class="input-box">
+													<input type="text" name="card_number" id="card_number" value="<?php echo $card_number; ?>" title="Your Card Number" class="input-text required-entry <?php if (!empty($this->errorMessages['cardnumber']) && isset($this->postVariables['register_card'])) echo 'validation-failed'; ?>" />
+														<div class="validation-advice" style="">
+															<?php if (isset($this->errorMessages['cardnumber'])) echo $this->errorMessages['cardnumber']; ?>
+															<?php if (isset($this->errorMessages['cardnumber1'])) echo $this->errorMessages['cardnumber1']; ?>
+														</div>
+													<a href="images/card-id.png" rel="lightbox"><i class="icon-search"></i></a>
+													<small>This is the 16 digit number which appears on the back of your card. If you have a brand new card with a long barcode, the card number is the last sixteen digits. Click the magnifying glass to the left for further details.</small>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="card_code" class="required"><em>*</em>Card security code</label>
+												<div class="input-box">
+													<input type="text" name="card_code" id="card_code" value="<?php echo $card_code; ?>" title="Card security code" class="input-text required-entry <?php if (!empty($this->errorMessages['cardpin']) && isset($this->postVariables['register_card'])) echo 'validation-failed'; ?>" />
+													<div class="validation-advice" style="">
+															<?php if (isset($this->errorMessages['cardpin'])) echo $this->errorMessages['cardpin']; ?>
+														</div>
+													<a href="images/card-pin.gif" rel="lightbox"><i class="icon-search"></i></a>
+													<small>This is the code under the scratch-off panel on the back of your card. If this has already been exposed or your card does not have this panel, please return it to the Customer Services department at an Asda store and ask for the balance to be transferred to a new card.</small>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="card_name">Card name</label>
+												<div class="input-box">
+													<input type="text" name="card_name" id="card_name" value="<?php echo $cardName ;?>" title="Card name" class="input-text " />
+													<small>You can assign a name to your card to make it easier to remember in the future. This should be no more than 11 characters</small>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="buttons-set form-buttons clearfix">
+								<p class="back-link"><a href=""><small>&laquo; </small>Back</a></p>
+								<button type="submit" class="button" name="register_card" title="Add Card">Add Card</button>
+							</div>
+							<p class="required">* Required Fields</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

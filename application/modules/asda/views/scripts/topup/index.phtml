@@ -1,0 +1,48 @@
+<section id="content" class="clearfix">
+	<div class="main col1-layout clearfix">
+		<div class="wrapper">
+			<div class="col-main clearfix">
+				<div class="account-login">
+					<div class="page-title">
+						<h1>Topup your card</h1>
+					</div>
+					<div class="pageWrapper clearfix">
+						<div class="widget clearfix">
+                        <?php if (!empty ($this->errorMessages)) {?>
+					    <ul class="form-list">
+						<li>
+						    <h2><?php echo $this->errorMessages?></h2>
+						</li>
+						</ul>
+					 <?php } else { ?>
+							<form method="post" action="/topup/index/cid/<?php echo $this->cardId; ?> " name="reset_password" id="reset_password">
+								<h2 class="legend">Enter the amount</h2>
+								<div class="pageWrapper clearfix">
+								<ul class="form-list">
+								<li>
+									<div class="field clearfix">
+										<label for="amount" class="required">&pound;</label>
+										<div class="input-box">
+											<div style="color:sienna;font-style: italic;">You can topup minimum of &pound; 1 and maximum of &pound; 100 </div>
+											<input id="amount" class="required-entry" type="text" value="" alt="email" name="amount">
+											<div class="validation-advice" style="">
+												<?php if ($this->topupError) echo $this->topupError; ?>
+											</div>
+										</div>
+									</div>
+								</li>
+								</ul>
+								<!-- <input type="submit"  name="reset_password" value="Submit" class="button login-btn floatright" />  -->
+								<!-- <a class="button floatright" href="<?php echo DOMAIN_NAME .'manage_cards.php?fl=cl&clr=1&cid=' . $cardDetails->id?>&rt=<?php echo urlencode($returnUrl)?>">Proced to payment</a> -->
+								<input type="submit"  name="topup_amount" value="Proceed to payment" class="button login-btn floatright" />
+								<a class="" href="account.php"><i class="icon-left-open"></i> Back</a>
+								</div>
+							</form>
+							<?php } ?>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

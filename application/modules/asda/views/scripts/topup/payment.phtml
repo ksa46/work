@@ -1,0 +1,126 @@
+<section id="content" class="clearfix">
+	<div class="main col1-layout clearfix">
+		<div class="wrapper">
+			<div class="col-main clearfix">
+				<div class="payment">
+					<div class="pageWrapper clearfix">
+						<div class="page-title">
+							<h1>Pay by Card</h1>
+						</div>
+						<form action="" method="POST" autocomplete="off"> 
+							<div class="fieldset clearfix">
+								<input type="hidden" name="success_url" value="" />
+								<input type="hidden" name="error_url" value="" />
+								<h2 class="legend">Please fill out card details to complete order</h2>
+								<div class="pageWrapper clearfix">
+									<ul class="form-list">
+										<li class="fields">
+											<div class="field clearfix">
+												<label for="cardholder" class="required">Name of Cardholder</label>
+												<div class="input-box">
+													<input class="input-text required-entry " value="" type="text" name="first_name" value="" />    
+													<div class="validation-advice" style="">
+														 
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="card_type" class="required">Card Type</label>
+												<div class="input-box">
+													 <select name="card_type">
+														<option value="Master Card">Master Card</option>
+														<option value="Delta">Visa Debit, Delta or Connect</option>
+														<option value="Visa">Visa</option>
+														<option value="Maestro">Maestro</option>
+														<option value="Solo">Solo</option>
+														<!-- JCB is not available with all banks, remove for HSBC -->
+														<!-- <option value="JCB" ${card_type=JCB}>${JCB_Text:=JCB}</option>  -->
+													</select>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="card_number" class="required">Card Number</label>
+												<div class="input-box ">
+													<input type="text" class="input-text" name="card_no" value="" >
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="cardholder" class="required">Expiry Date (MM/YY)</label>
+												<div class="input-box">
+													<input type="text" class="text short" name="expiry" value="" maxlength="5" size="5">
+													<div class="validation-advice" style="">
+														 
+													</div>
+												</div>
+											</div>
+										
+											<div class="field clearfix">
+												<label for="card_number" class="required">Issue No.</label>
+												<div class="input-box ">
+													<input type="text" class="text short" name="issue" value="" maxlength="2" size="5">
+												</div>
+											</div>
+											
+											<div class="field clearfix">
+												<label for="card_number" class="required">CV2 (security code)</label>
+												<div class="input-box ">
+													<input type="password" class="text short" name="cv2" value="" maxlength="4" size="5">
+												</div>
+											</div>
+											
+											<div class="field clearfix">
+												<label for="cardholder" class="required">Start Date (MM/YY)</label>
+												<div class="input-box">
+													<input type="text" class="text short" name="start_date" value=""" maxlength="5" size="5">
+													<div class="validation-advice" style="">
+														 
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="cardholder" class="required">Amount</label>
+												<div class="input-box">
+													<span id="amount">&pound; <?php echo $this->topupAmount?></span>
+													<div class="validation-advice" style="">
+														 
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="cardholder" class="required">Card number to topup</label>
+												<div class="input-box">
+													<span id="amount"> <?php echo $this->cardInfo->cardnumber?></span>
+													<div class="validation-advice" style="">
+														 
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="buttons-set form-buttons clearfix">
+							 <p id="authorise_text">Please do not press "Confirm Order" more than once.</p>
+								<p class="required">* Required Fields</p>
+								<p class="back-link"><a href="account.php"><small>&laquo; </small>Back</a></p>
+<!-- 									<input type="submit"  class="button" name="register" value="Top up Card" /> -->
+								<a class="button floatright" href="/account">Top up Card</a>
+							</div>
+						</form>
+						<p>
+							<a title="PayPoint.net" target="_blank" href="http://www.paypoint.net">
+							<img width="125px" height="22px" style="border:0;" title="PayPoint.net logo" alt="PayPoint.net logo" src="https://www.secpay.com/images/small_logo.gif">
+							</a>
+						</p>
+						<p>
+						Secure Payment
+						<br>
+						<img width="16px" height="16px" alt="The secure padlock" src="https://www.secpay.com/users/jordan02/lock.png">
+						</p>
+						<p>You have now entered a secure transaction environment. Your personal information will be encrypted before transmission. Please check that the address bar of your browser is visible and that the address begins with <strong>https://</strong> For your re-assurance, this page is loaded from <strong>https://www.secpay.com</strong>. PayPoint.net incorporates the SECPay service.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

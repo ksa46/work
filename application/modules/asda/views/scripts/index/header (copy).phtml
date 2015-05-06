@@ -1,0 +1,199 @@
+	<header class="clearfix">
+		<div class="wrapper">
+			<div id="dashboard" class="clearfix">
+				<ul>
+					<li class="first balance">
+						<a href="">Check Balance</a>
+					</li>
+					<li class="sign-in dropdownButton">
+						<a class="dropdownTrigger signinDropdown" title="Log in">Log in <i class="icon-down-open"></i></a>
+						<div class="dashboard-dropdown login" >
+							<span class="top">^</span>
+							<span class="close-btn">Close</span>
+							<form action="login.php" method="post" name="loginform" id="login-form">
+								<div class="fieldset">
+								<h2>Please sign in.</h2>
+									<ul class="form-list clearfix">
+										<li>
+											<label for="email" class="required">Email Address</label>
+											<input name="user_email" value="" id="email" type="text" class="input-text required-entry validate-email" title="Email Address" />
+										</li>
+										<li>
+											<label for="pass" class="required">Password</label>
+											<input name="password" autocomplete="off" required type="password" class="input-text required-entry validate-password" id="pass" title="Password" />
+										</li>
+									</ul>
+									<div class="buttons-set form-buttons btn-only clearfix">
+										<input type="submit"  name="login" value="Log in" class="button login-btn" />
+									</div>
+									<a class="forgot" href="forgot_password.php">Forgot password?</a>
+								</div>
+							</form>
+						</div>
+					</li>
+					 <li class="register">
+						<a title="Register" href="register.php">Register</a>
+					</li>		
+					<li class="dropdownButton priceDropdown" id="priceDropdown">
+						<span id="priceWrapper">
+						<a class="dropdownTrigger" title="Total in Trolley"><i class="icon-basket"></i><span class="price">&pound;0.00</span><i class="icon-down-open"></i></a>
+						<div class="dashboard-dropdown block-content top-cart">
+						<span class="top">^</span>
+							<div class="inner-wrapper">
+								<div class="topTotal">
+									<p class="block-subtitle">
+										<span class="close-btn">Close</span>
+										<span class="label">Your Total</span> <span class="price">&pound;0.00</span>
+									</p>
+									<p class="cart-empty">
+										You have no items in your trolley.
+									</p>
+								</div>
+								<div class="actions">
+									<button class="button" type="button">Checkout</button>
+									<a href="#" class="button" >View Full Trolley</a>
+								</div>
+							</div>
+						</div>
+						</span>
+					</li>
+					<li class="help clearfix">
+						<a href=""><i class="icon-help-circled"></i> Help</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="mobileHeader" class="clearfix">
+			<div id="mobileDashboard" class="clearfix">
+				<div class="wrapper">
+					<ul>
+						<li class="first sign-in">
+							<a title="Log in" href="login.php">Log in</a>
+						</li>
+						<li class="register">
+							<a title="Register" href="register.php">Register</a>
+						</li>
+						<li class="last">
+							<span id="mobileCart">
+								<a id="cartLink" href="#" title="Total in cart"><span class="cart"><i class="icon-basket"></i></span><span class="price">£0.00</span></a>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="mobileNav" class="clearfix">
+				<div class="wrapper">
+					<ul>
+						<li class="first">
+							<a href="#" class="mainmenu" title="Navigation Menu"><i class="icon-menu-1"></i></a>
+						</li>
+						<li class="last">
+							<a class="search" href="#" title="Search"><i class="icon-search"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="formSearch">
+				<form id="search_mini_form" class="clearfix" action="#" method="get">
+					<label for="search">Search...</label>
+					<input id="search" type="text" name="q" value="" class="input-text" />&nbsp;
+					<button type="submit" title="Search" class="button"><i class="icon-search"></i></button>
+					<div id="search_autocomplete" class="search-autocomplete"></div>
+				</form>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div id="logo" class="clearfix">
+				<a href="index.php" title="ASDA Cards" class="logo"><img src="/img/logo.png" alt="ASDA Cards" /></a>
+			</div>
+		</div>
+    </header>
+	<nav role="navigation" id="mainMenu" class="clearfix">
+		<div class="wrapper clearfix">
+			<ul class="level1">
+				<li class="first dropdown" aria-haspopup="true">
+					<a href="#" >Gift Cards<span class="chevron">></span></a>
+						<ul class="level2 clearfix" >
+							<li class="first" aria-haspopup="true">
+								<a href="#" title="Gift Cards">Gift Card Range<span class="chevron">></span></a>
+								<ul class="level3 active">
+									<!--
+									<li class="first"><a href="gift-cards/christmas-gift-cards.html" title="Christmas">Christmas</a></li>
+									-->
+									<li class="first"><a href="#" title="New Cards">New Cards</a></li>
+									<li><a href="#" title="Birthday">Birthday</a></li>
+									<li><a href="#" title="George">George</a></li>
+									<li><a href="#" title="Seasonal">Seasonal</a></li>
+									<li><a href="#" title="Other occasion">Other occasion</a></li>
+									<li class="last"><a href="#" title="Limited Edition">Limited Edition</a></li>
+								</ul>
+							</li>
+							<li class="" aria-haspopup="true">
+								<a href="#" title="Christmas Savings Card">Christmas Savings Card<span class="chevron">></span></a>
+								<ul class="level3">
+									<li class="first"><a href="#" title="Buying a card">Buy Christmas Savings Card</a></li>
+									<li><a href="#" title="About Christmas Savings Card">About Christmas Savings Card</a></li>
+								</ul>
+							</li>
+							<li class="" aria-haspopup="true">
+								<a href="#" title="High Street Cards">High Street gift cards<span class="chevron">></span></a>
+								<ul class="level3">
+									<li class="first last"><a href="#" title="About High Street Cards">About High Street Cards</a></li>
+								</ul>
+							</li>
+							<li aria-haspopup="true">
+								<a href="#" title="Monkey Bank Card">Monkey Bank Card<span class="chevron">></span></a>
+								<ul class="level3">
+									<li class="first"><a href="#" title="Buy Monkey Bank Card">Buy Monkey Bank Card</a></li>
+									<li><a href="#" title="About Monkey Bank Card">About Monkey Bank Card</a></li>
+									<li><a href="#" title="Play Monkey Bank game">Play Monkey Bank game</a></li>
+								</ul>
+							</li>
+							<li class="last" aria-haspopup="true">
+								<a href="#" title="Student Shopper Card">Student Shopper Card<span class="chevron">></span></a>
+								<ul class="level3">
+									<li class="first"><a href="#" title="Buying a card">Buying a card</a></li>
+									<li><a href="#" title="Using a card">Using a card</a></li>
+									<li><a href="#" title="Topping up">Topping up</a></li>
+									<li class="last"><a href="#" title="Registering">Registering</a></li>
+								</ul>
+							</li>
+						</ul>
+				</li>
+				<li>
+					<a href="#" title="eGifts">eGifts</a>
+				</li>
+				<li class="dropdown" aria-haspopup="true">
+					<a href="#" >Manage My Cards<span class="chevron">></span></a>
+					<ul class="level2">
+						<li><a href="login.php" title="Log in">Log in</a></li>
+						<li class="register"><a title="Register" href="register.php">Register</a></li>
+						<li class="last register"><a title="Register" href="registercard.php">Register My Card</a></li>
+					</ul>
+				</li>
+				<li class="dropdown" aria-haspopup="true">
+				<a href="#" title="Business gift cards">Business gift cards<span class="chevron">></span></a>
+					<ul class="level2">
+						<li><a href="#" title="Business gift card range">Business gift card range</a></li>
+						<li><a href="#"  title="About business gift cards">About business gift cards</a></li>
+						<li><a href="#" title="Card Management System">Card Management System</a></li>
+						<li><a href="#" title="Delivery information">Delivery information</a></li>
+						<li class="last"><a href="#" title="Business order form">Business order form</a></li>
+					</ul>
+				</li>
+				<li class="last">
+				<a href="#" title="CardSwap">Card Swap</a>
+				</li>
+			</ul>
+			<div id="formSearch">
+				<form id="search_mini_form" class="clearfix" action="#" method="get">
+
+					<label for="search">Search...</label>
+					<input id="search" type="text" name="q" value="" class="input-text" />&nbsp;
+					<button type="submit" title="Search" class="button"><i class="icon-search"></i></button>
+					<div id="search_autocomplete" class="search-autocomplete"></div>
+				</form>
+			</div>
+		</div>
+		<div id="navDropdown">&#160;</div>
+	</nav>

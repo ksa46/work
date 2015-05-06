@@ -1,0 +1,74 @@
+<section id="content" class="clearfix">
+	<div class="main col1-layout clearfix">
+		<div class="wrapper">
+			<div class="col-main clearfix">
+				<div class="account-login">
+					<div class="page-title">
+						<h1>Log in</h1>
+					</div>
+					<div class="pageWrapper clearfix">
+					<?php if(!empty($this->message)) { ?>
+					<div class="messages">
+						<h2><?php echo $this->message; ?></h2>
+					</div>
+					<?php
+						}
+					?>
+					<h2>Log in or Create an Account</h2>
+					<p>Check the balance of your ASDA Gift Card or ASDA Christmas Savings Card.</p>
+
+						<div class="column-50-50 clearfix">
+						<form method="post" action="/login" name="loginform" id="login-form" class="clearfix">
+						<div class="col1 widget">
+						<h2 class="legend">Registered Customers</h2>
+						<div class="pageWrapper login clearfix">
+						<p>If you have an account with us, log in using your email address.</p>
+
+											<ul class="clearfix">
+												<li>
+													<label for="login_input_username">Email Address</label>
+													<input id="login_input_username" class="login_input input-text" value="<?php echo $this->userEmail;?>" type="text" name="user_email" required />
+													<div class="validation-advice" style="">
+														<?php
+					                                        if (isset($this->UserError)) {
+					                                            echo $this->UserError;
+					                                        }
+														?>
+													</div>
+												</li>
+												<li>
+													<label for="login_input_password">Password</label>
+													<input id="login_input_password" class="login_input" type="password" name="password" autocomplete="off" required />
+													 <div class="validation-advice" style="">
+														<?php
+					                                        if (isset($this->passwordError)) {
+					                                            echo $this->passwordError;
+					                                        }
+														?>
+													</div>
+												</li>
+											</ul>
+									<div class="buttons-set form-buttons btn-only">
+										<input type="submit"  name="login" value="Log in" class="button login-btn" />
+										<a href="/login/forgot-password">Forgot Your Password?</a>
+									</div>
+									</div>
+								</div>
+								<div class="col2 widget">
+									<h2 class="legend">New Customers</h2>
+									<div class="pageWrapper register clearfix">
+										<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+										<div class="buttons-set">
+											<a href="/user/register" class="button">Register new account</a>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

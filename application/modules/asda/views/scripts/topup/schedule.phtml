@@ -1,0 +1,66 @@
+<section id="content" class="clearfix">
+	<div class="main col1-layout clearfix">
+		<div class="wrapper">
+			<div class="col-main clearfix">
+				<div class="account-login">
+					<div class="page-title">
+						<h1>Topup your card</h1>
+					</div>
+					<div class="pageWrapper clearfix">
+						<div class="widget clearfix">
+                        <?php if (!empty ($this->errorMessages)) {?>
+					    <ul class="form-list">
+						<li>
+						    <h2><?php echo $this->errorMessages?></h2>
+						</li>
+						</ul>
+					 <?php } else { ?>
+							<form method="post" action="/topup/schedule/cid/<?php echo $this->cardId; ?> " name="reset_password" id="reset_password">
+								<h2 class="legend">Enter the amount</h2>
+								<div class="pageWrapper clearfix">
+								<ul class="form-list">
+								<li>
+									
+									<div class="field clearfix">
+										<label for="amount" class="required">How often would you like to topup?</label>
+										<div class="input-box">
+											<select id="frequency" class="input-text required-entry" type="text" value="" name="frequency">
+											<option value="Select">Select</option>
+											<option value="Weekly" <?php if ($this->frequency == 'Weekly') echo ' selected="selected"'; ?> >Weekly</option>
+											<option value="Monthly" <?php if ($this->frequency == 'Monthly') echo ' selected="selected"'; ?> >Monthly</option>
+											<option value="Quarterly" <?php if ($this->frequency == 'Quarterly') echo ' selected="selected"'; ?> >Quarterly </option>
+											<option value="Annually" <?php if ($this->frequency == 'Annually') echo ' selected="selected"'; ?> >Annually</option>
+											</select>
+											<div class="validation-advice" style="">
+												<?php if (! empty($this->topupError['frequency'])) echo $this->topupError['frequency']; ?>
+											</div>
+										</div>
+									</div>
+									
+									<div class="field clearfix">
+										<label for="amount" class="required">&pound;</label>
+										<div class="input-box">
+											<input id="amount" class="required-entry" type="text" value="" alt="email" name="amount">
+											<div class="validation-advice" style="">
+												<?php if (! empty($this->topupError['amount'])) echo $this->topupError['amount']; ?>
+											</div>
+										</div>
+									</div>
+									
+
+								</li>
+								</ul>
+								<!-- <input type="submit"  name="reset_password" value="Submit" class="button login-btn floatright" />  -->
+								<!-- <a class="button floatright" href="<?php echo DOMAIN_NAME .'manage_cards.php?fl=cl&clr=1&cid=' . $cardDetails->id?>&rt=<?php echo urlencode($returnUrl)?>">Proced to payment</a> -->
+								<input type="submit"  name="topup_amount" value="Proceed to payment" class="button login-btn floatright" />
+								<a class="" href="account.php"><i class="icon-left-open"></i> Back</a>
+								</div>
+							</form>
+							<?php } ?>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

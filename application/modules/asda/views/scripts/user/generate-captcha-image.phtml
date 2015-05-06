@@ -1,0 +1,474 @@
+<?php
+
+$gender    = isset($this->postVariables['gender']) ?  $this->postVariables['gender'] : '';
+$dayList   = isset($this->postVariables['date-dropdown_dateLists_day_list']) ? $this->postVariables['date-dropdown_dateLists_day_list'] : '';
+$monthList = isset($this->postVariables['date-dropdown_dateLists_month_list']) ? $this->postVariables['date-dropdown_dateLists_month_list'] : '';
+$yearList  = isset($this->postVariables['date-dropdown_dateLists_year_list']) ? $this->postVariables['date-dropdown_dateLists_year_list'] : '';
+$title     = isset($this->postVariables['title']) ? $this->postVariables['title'] : '';
+?> 
+<section id="content" class="clearfix">
+	<div class="main clearfix">
+		<div class="wrapper">
+				<div class="account-create">
+					<div class="pageWrapper clearfix">
+						<div class="page-title">
+							<h1>Create an Account</h1>
+						</div>
+						<form method="post" action="register" name="registerform" id="register">  
+							<div class="fieldset clearfix">
+								<input type="hidden" name="success_url" value="" />
+								<input type="hidden" name="error_url" value="" />
+								<h2 class="legend">Personal Information</h2>
+								<div class="pageWrapper clearfix">
+									<ul class="form-list">
+										<li class="fields">
+											<div class="field clearfix">
+												<label for="title" class="required"><em>*</em>Title</label>
+												<div class="input-box">	
+													<select class="input-text required-entry" type="text" name="title"">  
+														<option value="selected">-</option>
+														<option value="Mr" <?php if ($title == "Mr") echo ' selected="selected"'; ?>>Mr</option>
+														<option value="Mrs" <?php if ($title == "Mrs") echo ' selected="selected"'; ?>>Mrs</option>
+														<option value="Ms" <?php if ($title == "Ms") echo ' selected="selected"'; ?>>Ms</option>
+														<option value="Dr" <?php if ($title == "Dr") echo ' selected="selected"'; ?>>Dr</option>
+														<option value="Sir" <?php if ($title == "Sir") echo ' selected="selected"'; ?>>Sir</option>
+													</select>
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['title'])) echo $this->errorMessages['title']; ?>
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="first_name" class="required"><em>*</em>First Name</label>
+												<div class="input-box">
+													<input class="input-text required-entry <?php if (( !empty($this->errorMessages['firstname'])) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" type="text" name="first_name" value="<?php if (isset($this->postVariables['first_name'])) echo $this->postVariables['first_name'];?>" />    
+														<div class="validation-advice" style="">
+															<?php if (isset($this->errorMessages['firstname'])) echo $this->errorMessages['firstname']; ?> 
+														</div>
+
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="last_name" class="required"><em>*</em>Last Name</label>
+												<div class="input-box">
+													<input class="input-text required-entry <?php if (!empty($this->errorMessages['lastname']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" type="text"  name="last_name" value="<?php if (isset($this->postVariables['last_name'])) echo $this->postVariables['last_name'];?>" />  
+														<div class="validation-advice" style="">
+															<?php if (isset($this->errorMessages['lastname'])) echo $this->errorMessages['lastname']; ?>
+														</div>
+												</div>
+											</div>
+										</li>
+													
+										<li>
+										<div class="field clearfix">
+											<label for="dob" class="required"><em>*</em>Date of Birth</label>
+											<!--<?php if (isset($this->errorMessages['dob1'])) echo $this->errorMessages['dob1']; ?>
+											<?php if (isset($this->errorMessages['dob2'])) echo $this->errorMessages['dob2']; ?> 
+											<?php if (isset($this->errorMessages['dob3'])) echo $this->errorMessages['dob3']; ?> --> 
+											<div class="input-box customer-dob">
+												<div class="clearfix">
+												<select id="date-dropdown_dateLists_day_list" class="list <?php if (!empty($this->errorMessages['dob1']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" name="date-dropdown_dateLists_day_list">
+													<option selected="selected" value="">-</option>
+													<option value="1"<?php if ($dayList == 1) echo ' selected="selected"'; ?>>1</option>
+													<option value="2" <?php if ($dayList == 2) echo ' selected="selected"'; ?>>2</option>
+													<option value="3" <?php if ($dayList == 3) echo ' selected="selected"'; ?>>3</option>
+													<option value="4" <?php if ($dayList == 4) echo ' selected="selected"'; ?>>4</option>
+													<option value="5" <?php if ($dayList == 5) echo ' selected="selected"'; ?>>5</option>
+													<option value="6" <?php if ($dayList == 6) echo ' selected="selected"'; ?>>6</option>
+													<option value="7" <?php if ($dayList == 7) echo ' selected="selected"'; ?>>7</option>
+													<option value="8" <?php if ($dayList == 8) echo ' selected="selected"'; ?>>8</option>
+													<option value="9" <?php if ($dayList == 9) echo ' selected="selected"'; ?>>9</option>
+													<option value="10" <?php if ($dayList == 10) echo ' selected="selected"'; ?>>10</option>
+													<option value="11" <?php if ($dayList == 11) echo ' selected="selected"'; ?>>11</option>
+													<option value="12" <?php if ($dayList == 12) echo ' selected="selected"'; ?>>12</option>
+													<option value="13" <?php if ($dayList == 13) echo ' selected="selected"'; ?>>13</option>
+													<option value="14" <?php if ($dayList == 14) echo ' selected="selected"'; ?>>14</option>
+													<option value="15" <?php if ($dayList == 15) echo ' selected="selected"'; ?>>15</option>
+													<option value="16" <?php if ($dayList == 16) echo ' selected="selected"'; ?>>16</option>
+													<option value="17" <?php if ($dayList == 17) echo ' selected="selected"'; ?>>17</option>
+													<option value="18" <?php if ($dayList == 18) echo ' selected="selected"'; ?>>18</option>
+													<option value="19" <?php if ($dayList == 19) echo ' selected="selected"'; ?>>19</option>
+													<option value="20" <?php if ($dayList == 20) echo ' selected="selected"'; ?>>20</option>
+													<option value="21" <?php if ($dayList == 21) echo ' selected="selected"'; ?>>21</option>
+													<option value="22" <?php if ($dayList == 22) echo ' selected="selected"'; ?>>22</option>
+													<option value="23" <?php if ($dayList == 23) echo ' selected="selected"'; ?>>23</option>
+													<option value="24" <?php if ($dayList == 24) echo ' selected="selected"'; ?>>24</option>
+													<option value="25" <?php if ($dayList == 25) echo ' selected="selected"'; ?>>25</option>
+													<option value="26" <?php if ($dayList == 26) echo ' selected="selected"'; ?>>26</option>
+													<option value="27" <?php if ($dayList == 27) echo ' selected="selected"'; ?>>27</option>
+													<option value="28" <?php if ($dayList == 28) echo ' selected="selected"'; ?>>28</option>
+													<option value="29" <?php if ($dayList == 29) echo ' selected="selected"'; ?>>29</option>
+													<option value="30" <?php if ($dayList == 30) echo ' selected="selected"'; ?>>30</option>
+													<option value="30" <?php if ($dayList == 31) echo ' selected="selected"'; ?>>31</option>
+												</select>
+												<select id="date-dropdown_dateLists_month_list" class="list <?php if (!empty($this->errorMessages['dob2']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" name="date-dropdown_dateLists_month_list">
+													<option selected="true" value="">-</option>
+													<option value="1" <?php if ($monthList == 1) echo ' selected="selected"'; ?>>Jan</option>
+													<option value="2" <?php if ($monthList == 2) echo ' selected="selected"'; ?>>Feb</option>
+													<option value="3" <?php if ($monthList == 3) echo ' selected="selected"'; ?>>Mar</option>
+													<option value="4" <?php if ($monthList == 4) echo ' selected="selected"'; ?>>Apr</option>
+													<option value="5" <?php if ($monthList == 5) echo ' selected="selected"'; ?>>May</option>
+													<option value="6" <?php if ($monthList == 6) echo ' selected="selected"'; ?>>Jun</option>
+													<option value="7" <?php if ($monthList == 7) echo ' selected="selected"'; ?>>Jul</option>
+													<option value="8" <?php if ($monthList == 8) echo ' selected="selected"'; ?>>Aug</option>
+													<option value="9" <?php if ($monthList == 9) echo ' selected="selected"'; ?>>Sep</option>
+													<option value="10" <?php if ($monthList == 10) echo ' selected="selected"'; ?>>Oct</option>
+													<option value="11" <?php if ($monthList == 11) echo ' selected="selected"'; ?>>Nov</option>
+													<option value="12" <?php if ($monthList == 12) echo ' selected="selected"'; ?>>Dec</option>
+												</select>
+												<select id="date-dropdown_dateLists_year_list" class="list last <?php if (!empty($this->errorMessages['dob3']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" name="date-dropdown_dateLists_year_list">
+													<option selected="true" value="">-</option>
+													<option value="2013" <?php if ($yearList == 2013) echo ' selected="selected"'; ?>>2013</option>
+													<option value="2012" <?php if ($yearList == 2012) echo ' selected="selected"'; ?>>2012</option>
+													<option value="2011" <?php if ($yearList == 2011) echo ' selected="selected"'; ?>>2011</option>
+													<option value="2010" <?php if ($yearList == 2010) echo ' selected="selected"'; ?>>2010</option>
+													<option value="2009" <?php if ($yearList == 2009) echo ' selected="selected"'; ?>>2009</option>
+													<option value="2008 <?php if ($yearList == 2008) echo ' selected="selected"'; ?>">2008</option>
+													<option value="2007" <?php if ($yearList == 2007) echo ' selected="selected"'; ?>>2007</option>
+													<option value="2006" <?php if ($yearList == 2006) echo ' selected="selected"'; ?>>2006</option>
+													<option value="2005" <?php if ($yearList == 2005) echo ' selected="selected"'; ?>>2005</option>
+													<option value="2004" <?php if ($yearList == 2004) echo ' selected="selected"'; ?>>2004</option>
+													<option value="2003" <?php if ($yearList == 2003) echo ' selected="selected"'; ?>>2003</option>
+													<option value="2002" <?php if ($yearList == 2002) echo ' selected="selected"'; ?>>2002</option>
+													<option value="2001" <?php if ($yearList == 2001) echo ' selected="selected"'; ?>>2001</option>
+													<option value="2000" <?php if ($yearList == 2000) echo ' selected="selected"'; ?>>2000</option>
+													<option value="1999" <?php if ($yearList == 1999) echo ' selected="selected"'; ?>>1999</option>
+													<option value="1998" <?php if ($yearList == 1998) echo ' selected="selected"'; ?>>1998</option>
+													<option value="1997" <?php if ($yearList == 1997) echo ' selected="selected"'; ?>>1997</option>
+													<option value="1996" <?php if ($yearList == 1996) echo ' selected="selected"'; ?>>1996</option>
+													<option value="1995" <?php if ($yearList == 1995) echo ' selected="selected"'; ?>>1995</option>
+													<option value="1994" <?php if ($yearList == 1994) echo ' selected="selected"'; ?>>1994</option>
+													<option value="1993" <?php if ($yearList == 1993) echo ' selected="selected"'; ?>>1993</option>
+													<option value="1992" <?php if ($yearList == 1992) echo ' selected="selected"'; ?>>1992</option>
+													<option value="1991" <?php if ($yearList == 1991) echo ' selected="selected"'; ?>>1991</option>
+													<option value="1990" <?php if ($yearList == 1990) echo ' selected="selected"'; ?>>1990</option>
+													<option value="1989" <?php if ($yearList == 2008) echo ' selected="selected"'; ?>>1989</option>
+													<option value="1988" <?php if ($yearList == 1988) echo ' selected="selected"'; ?>>1988</option>
+													<option value="1987" <?php if ($yearList == 1987) echo ' selected="selected"'; ?>>1987</option>
+													<option value="1986" <?php if ($yearList == 1986) echo ' selected="selected"'; ?>>1986</option>
+													<option value="1985" <?php if ($yearList == 1985) echo ' selected="selected"'; ?>>1985</option>
+													<option value="1984" <?php if ($yearList == 1984) echo ' selected="selected"'; ?>>1984</option>
+													<option value="1983" <?php if ($yearList == 1983) echo ' selected="selected"'; ?>>1983</option>
+													<option value="1982" <?php if ($yearList == 1982) echo ' selected="selected"'; ?>>1982</option>
+													<option value="1981" <?php if ($yearList == 1981) echo ' selected="selected"'; ?>>1981</option>
+													<option value="1980" <?php if ($yearList == 1980) echo ' selected="selected"'; ?>>1980</option>
+													<option value="1979" <?php if ($yearList == 1979) echo ' selected="selected"'; ?>>1979</option>
+													<option value="1978" <?php if ($yearList == 1978) echo ' selected="selected"'; ?>>1978</option>
+													<option value="1977" <?php if ($yearList == 1977) echo ' selected="selected"'; ?>>1977</option>
+													<option value="1976" <?php if ($yearList == 1976) echo ' selected="selected"'; ?>>1976</option>
+													<option value="1975" <?php if ($yearList == 1975) echo ' selected="selected"'; ?>>1975</option>
+													<option value="1974" <?php if ($yearList == 1974) echo ' selected="selected"'; ?>>1974</option>
+													<option value="1973" <?php if ($yearList == 1973) echo ' selected="selected"'; ?>>1973</option>
+													<option value="1972" <?php if ($yearList == 1972) echo ' selected="selected"'; ?>>1972</option>
+													<option value="1971" <?php if ($yearList == 1971) echo ' selected="selected"'; ?>>1971</option>
+													<option value="1970" <?php if ($yearList == 1970) echo ' selected="selected"'; ?>>1970</option>
+													<option value="1969" <?php if ($yearList == 1969) echo ' selected="selected"'; ?>>1969</option>
+													<option value="1968" <?php if ($yearList == 1968) echo ' selected="selected"'; ?>>1968</option>
+													<option value="1967" <?php if ($yearList == 1967) echo ' selected="selected"'; ?>>1967</option>
+													<option value="1966" <?php if ($yearList == 1966) echo ' selected="selected"'; ?>>1966</option>
+													<option value="1965" <?php if ($yearList == 1965) echo ' selected="selected"'; ?>>1965</option>
+													<option value="1964" <?php if ($yearList == 1964) echo ' selected="selected"'; ?>>1964</option>
+													<option value="1963" <?php if ($yearList == 1963) echo ' selected="selected"'; ?>>1963</option>
+													<option value="1962" <?php if ($yearList == 1962) echo ' selected="selected"'; ?>>1962</option>
+													<option value="1961" <?php if ($yearList == 1961) echo ' selected="selected"'; ?>>1961</option>
+													<option value="1960" <?php if ($yearList == 1960) echo ' selected="selected"'; ?>>1960</option>
+													<option value="1959" <?php if ($yearList == 1959) echo ' selected="selected"'; ?>>1959</option>
+													<option value="1958" <?php if ($yearList == 1958) echo ' selected="selected"'; ?>>1958</option>
+													<option value="1957" <?php if ($yearList == 1957) echo ' selected="selected"'; ?>>1957</option>
+													<option value="1956" <?php if ($yearList == 1956) echo ' selected="selected"'; ?>>1956</option>
+													<option value="1955" <?php if ($yearList == 1955) echo ' selected="selected"'; ?>>1955</option>
+													<option value="1954" <?php if ($yearList == 1954) echo ' selected="selected"'; ?>>1954</option>
+													<option value="1953" <?php if ($yearList == 1953) echo ' selected="selected"'; ?>>1953</option>
+													<option value="1952" <?php if ($yearList == 1952) echo ' selected="selected"'; ?>>1952</option>
+													<option value="1951" <?php if ($yearList == 1951) echo ' selected="selected"'; ?>>1951</option>
+													<option value="1950" <?php if ($yearList == 1950) echo ' selected="selected"'; ?>>1950</option>
+													<option value="1949" <?php if ($yearList == 1949) echo ' selected="selected"'; ?>>1949</option>
+													<option value="1948" <?php if ($yearList == 1948) echo ' selected="selected"'; ?>>1948</option>
+													<option value="1947" <?php if ($yearList == 1947) echo ' selected="selected"'; ?>>1947</option>
+													<option value="1946" <?php if ($yearList == 1946) echo ' selected="selected"'; ?>>1946</option>
+													<option value="1945" <?php if ($yearList == 1945) echo ' selected="selected"'; ?>>1945</option>
+													<option value="1944" <?php if ($yearList == 1944) echo ' selected="selected"'; ?>>1944</option>
+													<option value="1943" <?php if ($yearList == 1943) echo ' selected="selected"'; ?>>1943</option>
+													<option value="1942" <?php if ($yearList == 1942) echo ' selected="selected"'; ?>>1942</option>
+													<option value="1941" <?php if ($yearList == 1941) echo ' selected="selected"'; ?>>1941</option>
+													<option value="1940" <?php if ($yearList == 1940) echo ' selected="selected"'; ?>>1940</option>
+													<option value="1939" <?php if ($yearList == 1939) echo ' selected="selected"'; ?>>1939</option>
+													<option value="1938" <?php if ($yearList == 1938) echo ' selected="selected"'; ?>>1938</option>
+													<option value="1937" <?php if ($yearList == 1937) echo ' selected="selected"'; ?>>1937</option>
+													<option value="1936" <?php if ($yearList == 1936) echo ' selected="selected"'; ?>>1936</option>
+													<option value="1935" <?php if ($yearList == 1935) echo ' selected="selected"'; ?>>1935</option>
+													<option value="1934" <?php if ($yearList == 1934) echo ' selected="selected"'; ?>>1934</option>
+													<option value="1933" <?php if ($yearList == 1933) echo ' selected="selected"'; ?>>1933</option>
+													<option value="1932" <?php if ($yearList == 1932) echo ' selected="selected"'; ?>>1932</option>
+													<option value="1931" <?php if ($yearList == 1931) echo ' selected="selected"'; ?>>1931</option>
+													<option value="1930" <?php if ($yearList == 1930) echo ' selected="selected"'; ?>>1930</option>
+													<option value="1929" <?php if ($yearList == 1929) echo ' selected="selected"'; ?>>1929</option>
+													<option value="1928" <?php if ($yearList == 1928) echo ' selected="selected"'; ?>>1928</option>
+													<option value="1927" <?php if ($yearList == 1927) echo ' selected="selected"'; ?>>1927</option>
+													<option value="1926" <?php if ($yearList == 1926) echo ' selected="selected"'; ?>>1926</option>
+													<option value="1925" <?php if ($yearList == 1925) echo ' selected="selected"'; ?>>1925</option>
+													<option value="1924" <?php if ($yearList == 1924) echo ' selected="selected"'; ?>>1924</option>
+													<option value="1923" <?php if ($yearList == 1923) echo ' selected="selected"'; ?>>1923</option>
+													<option value="1922" <?php if ($yearList == 1922) echo ' selected="selected"'; ?>>1922</option>
+													<option value="1921" <?php if ($yearList == 1921) echo ' selected="selected"'; ?>>1921</option>
+													<option value="1920" <?php if ($yearList == 1920) echo ' selected="selected"'; ?>>1920</option>
+													<option value="1919" <?php if ($yearList == 1919) echo ' selected="selected"'; ?>>1919</option>
+													<option value="1918" <?php if ($yearList == 1918) echo ' selected="selected"'; ?>>1918</option>
+													<option value="1917" <?php if ($yearList == 1917) echo ' selected="selected"'; ?>>1917</option>
+													<option value="1916" <?php if ($yearList == 1916) echo ' selected="selected"'; ?>>1916</option>
+													<option value="1915" <?php if ($yearList == 1915) echo ' selected="selected"'; ?>>1915</option>
+													<option value="1914" <?php if ($yearList == 1914) echo ' selected="selected"'; ?>>1914</option>
+													<option value="1913" <?php if ($yearList == 1913) echo ' selected="selected"'; ?>>1913</option>
+													<option value="1912" <?php if ($yearList == 1912) echo ' selected="selected"'; ?>>1912</option>
+													<option value="1911" <?php if ($yearList == 1911) echo ' selected="selected"'; ?>>1911</option>
+													<option value="1910" <?php if ($yearList == 1910) echo ' selected="selected"'; ?>>1910</option>
+													<option value="1909" <?php if ($yearList == 1909) echo ' selected="selected"'; ?>>1909</option>
+													<option value="1908" <?php if ($yearList == 1908) echo ' selected="selected"'; ?>>1908</option>
+													<option value="1907" <?php if ($yearList == 1907) echo ' selected="selected"'; ?>>1907</option>
+													<option value="1906" <?php if ($yearList == 1906) echo ' selected="selected"'; ?>>1906</option>
+													<option value="1905" <?php if ($yearList == 1905) echo ' selected="selected"'; ?>>1905</option>
+													<option value="1904" <?php if ($yearList == 1904) echo ' selected="selected"'; ?>>1904</option>
+													<option value="1903" <?php if ($yearList == 1903) echo ' selected="selected"'; ?>>1903</option>
+													<option value="1902" <?php if ($yearList == 1902) echo ' selected="selected"'; ?>>1902</option>
+													<option value="1901" <?php if ($yearList == 1901) echo ' selected="selected"'; ?>>1901</option>
+													<option value="1900" <?php if ($yearList == 1900) echo ' selected="selected"'; ?>>1900</option>
+												</select>
+												</div>
+												
+												<div class="validation-advice" id="date-advice" style="">
+													<span><?php if (isset($this->errorMessages['dob1'])) echo $this->errorMessages['dob1']; ?></span>
+												</div>
+												<div class="validation-advice" id="date-advice" style="">
+														<span><?php if (isset($this->errorMessages['dob2'])) echo $this->errorMessages['dob2']; ?></span>
+												</div>
+												<div class="validation-advice" id="date-advice" style="">
+														<span><?php if (isset($this->errorMessages['dob3'])) echo $this->errorMessages['dob3']; ?></span>
+												</div>
+												
+											</div>
+											</div>
+										</li>
+										<li>
+										<div class="field clearfix">
+											<label for="gender" class="required"><em>*</em>Gender</label>
+											
+											<div class="input-box">
+												<select  id="gender" name="gender" class="validate-select <?php if (!empty($this->errorMessages['gender']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" >
+													<option value="" selected="selected"></option>
+													<option value="male" <?php if ($gender == 'male') echo ' selected="selected"'; ?>>Male</option>
+													<option value="female" <?php if ($gender == 'female') echo ' selected="selected"'; ?>>Female</option>
+												</select>
+												<div class="validation-advice" style="">
+													<?php if (isset($this->errorMessages['gender']) && isset($this->postVariables['register'] )) echo $this->errorMessages['gender']; ?>
+												</div>
+											</div>
+										</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="fieldset clearfix">
+								<input type="hidden" name="create_address" value="1" />
+								<h2 class="legend">Address Information</h2>
+								<div class="pageWrapper clearfix">
+									<ul class="form-list">
+										<li class="fields">
+											<div class="field clearfix">
+												<label for="phone_number" class="required"><em>*</em>Phone number</label>  
+												<div class="input-box">
+													<input type="text" class="input-text required-entry <?php if (!empty($this->errorMessages['phone']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" name="phone_number" value="<?php if (isset($this->postVariables['phone_number'])) echo $this->postVariables['phone_number'];?>" />
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['phone'])) echo $this->errorMessages['phone']; ?>
+														<?php if (isset($this->errorMessages['phone_valid'])) echo $this->errorMessages['phone_valid']; ?>
+													</div>
+												</div>
+											</div>
+											
+
+                                            
+											<div class="field clearfix">
+												<label for="post_code" class="required"><em>*</em>Post code</label> 
+												<div class="input-box">
+												   <input type="text" name="post_code" id = "post_code" value="<?php if (!empty($this->postVariables['post_code'])) echo $this->postVariables['post_code'];?>" class="input-text required-entry <?php if (!empty($this->errorMessages['postcode']) && isset($this->postVariables['register']) ) echo 'validation-failed'; ?>" />
+												   	<div class="validation-advice post-code-error" style="">
+														<?php if (isset($this->errorMessages['postcode'])) echo $this->errorMessages['postcode']; ?>
+													</div>
+													<input type="button"  class="button" id ="post-code-find-button" name="post-code-find-button" value="Find my address" />
+												    <select id="postcode-finder-return" name="postcode-finder-return" style="display:none;">
+                                                        <option>Select an address:</option>
+                                                    </select>  
+												</div>
+											</div>
+											
+											<div class="field clearfix">
+												<label for="address1" class="required"><em>*</em>Address1</label> 
+												<div class="input-box">
+													<input type="text"  name="address1" id="address1" value="<?php if (isset($this->postVariables['address1'])) echo $this->postVariables['address1'];?>" class="input-text required-entry <?php if (!empty($this->errorMessages['address1']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>"/>  
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['address1'])) echo $this->errorMessages['address1']; ?>
+													</div>															
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="address2" class="required"><!-- <em>*</em>  -->Address2</label>  
+												<div class="input-box">
+													<input type="text" class="input-text <?php if (!empty($this->errorMessages['address2']) && isset($this->postVariables['register'] ) ) echo 'validation-failed'; ?>" name="address2" id="address2"  value="<?php if (isset($this->postVariables['address2'])) echo $this->postVariables['address2'];?>" class="input-text required-entry" /> 
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['address2'])) echo $this->errorMessages['address2']; ?>
+													</div>		
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="city" class="required"><em>*</em>Town/City</label>
+												<div class="input-box">
+													<input type="text" name="city" id="city" value="<?php if (isset($this->postVariables['city'])) echo $this->postVariables['city']?>" title="City" class="input-text required-entry <?php if (!empty($this->errorMessages['city']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" id="city" />
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['city'])) echo $this->errorMessages['city']; ?>
+													</div>		
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="region_id" class="required"> <!-- <em>*</em>  --> County</label>
+												<div class="input-box">
+													<input type="text" id="region" name="county" value="<?php if (isset($this->postVariables['county'])) echo $this->postVariables['county']?>" title="State/Province" class="input-text <?php //if (isset($this->errorMessages['county']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>"/>
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['county'])) echo $this->errorMessages['county']; ?>
+													</div>	
+												</div>
+											</div>
+											<!-- 
+											<div class="field clearfix">
+												<label for="post_code" class="required"><em>*</em>Post Code</label>
+												<div class="input-box">
+													<input type="text" name="post_code" id = "post_code" value="<?php if (isset($this->postVariables['post_code'])) echo $this->postVariables['post_code'];?>" class="input-text required-entry <?php if (isset($this->errorMessages['postcode']) && isset($this->postVariables['register']) ) echo 'validation-failed'; ?>" />
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['postcode'])) echo $this->errorMessages['postcode']; ?>
+													</div>	
+												</div>
+											</div>
+											-->
+										</li>
+									</ul>
+									<input type="hidden" name="default_billing" value="1" />
+									<input type="hidden" name="default_shipping" value="1" />
+									<input type="hidden" name="address_id" id="address_id" value="" />
+								</div>
+							</div>
+
+							<div class="fieldset clearfix">
+								<h2 class="legend">Login Information</h2>
+								<div class="pageWrapper clearfix">
+									<ul class="form-list">
+										<li class="fields">
+											<div class="field clearfix">
+												<label for="login_input_email" class="required"><em>*</em>Email Address</label>
+												<div class="input-box">
+													<input type="email" pattern="(.*){3,64}" name="user_email" value="<?php if (isset($this->postVariables['user_email'])) echo $this->postVariables['user_email'];?>" class="input-text validate-email required-entry <?php if (isset($this->postVariables['register']) && (!empty($this->errorMessages['email1']) || !empty($this->errorMessages['email2']) || !empty($this->errorMessages['email3']) )) echo 'validation-failed';?>" />  
+													<div class="validation-advice" style="">
+														<span><?php if (isset($this->errorMessages['email1'])) echo $this->errorMessages['email1']; ?></span>
+														<span><?php if (isset($this->errorMessages['email2'])) echo $this->errorMessages['email2']; ?></span>
+														<span><?php if (isset($this->errorMessages['email3'])) echo $this->errorMessages['email3']; ?></span>
+														<span><?php if (isset($this->errorMessages['email4'])) echo $this->errorMessages['email4']; ?></span>
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="login_input_email" class="required"><em>*</em> Confirm Email Address</label>
+												<div class="input-box">
+
+													<input type="email" pattern="(.*){3,64}" name="user_email_confirm" value="<?php if (isset($this->postVariables['user_email_confirm'])) echo $this->postVariables['user_email_confirm'];?>" class="input-text validate-email required-entry <?php if (isset($this->postVariables['register']) && (!empty($this->errorMessages['email1']) || !empty($this->errorMessages['email2']) || !empty($this->errorMessages['email3']) )) echo 'validation-failed';?>" />  
+                                                    <!-- 
+
+													<div class="validation-advice" style="">
+														<span><?php if (isset($this->errorMessages['email1'])) echo $this->errorMessages['email1']; ?></span>
+														<span><?php if (isset($this->errorMessages['email2'])) echo $this->errorMessages['email2']; ?></span>
+														<span><?php if (isset($this->errorMessages['email3'])) echo $this->errorMessages['email3']; ?></span>
+														<span><?php if (isset($this->errorMessages['email4'])) echo $this->errorMessages['email4']; ?></span>
+													
+													</div>
+													-->
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="security_answer" class="required"><em>*</em>Security Question</label>    
+												<div class="input-box">
+													<select type="text" name="security_question" value="<?php if (isset($this->postVariables['security_answer'])  ) echo $this->postVariables['security_answer'];?>" class="input-text validate-email required-entry">
+													 <option value="Mothers maiden name">Mothers maiden name</option>
+													 <option value="Favorite colour">Favorite colour</option>
+													 <option value="Name of first pet">Name of first pet</option>
+													</select>   
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="security_answer" class="required"><em>*</em>Security Answer</label>
+												<div class="input-box">
+													<input type="text" name="security_answer" value="<?php if (isset($this->postVariables['security_answer'])) echo $this->postVariables['security_answer'];?>" class="input-text required-entry <?php if (!empty($this->errorMessages['securityanswer']) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" />   
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['securityanswer'])) echo $this->errorMessages['securityanswer']; ?>
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="password" class="required"><em>*</em>Password</label>
+												<div class="input-box">
+													<input type="password" name="user_password_new"  autocomplete="off" class="input-text required-entry validate-password <?php if (!empty($this->errorMessages) && isset($this->postVariables['register'] ) ) echo 'validation-failed'; ?>"/>
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['password'])) echo $this->errorMessages['password']; ?>
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="confirmation" class="required"><em>*</em>Confirm Password</label>
+												<div class="input-box">
+													<input type="password" name="user_password_repeat"  autocomplete="off"  class="input-text required-entry validate-cpassword <?php if (!empty($this->errorMessages) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" />  
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['password_not_same'])) echo $this->errorMessages['password_not_same']; ?>
+													</div>
+												</div>
+											</div>
+											<div class="field clearfix">
+												<label for="is_subscribed">Sign Up for Newsletter</label>
+												<div class="input-box clearfix">
+													<input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox" />
+													<small>We would like to contact you to ensure you don't miss out on things you might be interested in, including great offers, ideas and new services. We will never pass your data onto a 3rd party outside of the ASDA group without your permission. Please tick this box if you do not want to hear from us:</small>
+												</div>
+												
+											</div>
+											<div class="field clearfix">
+												<div class="input-box clearfix">
+												    <label for="captcha-image"></label>
+													<div class="floatright">
+													    <img src="<?php echo DOMAIN_NAME.'common.php?fl=capt'?>" name="captcha-image"/>
+													    
+													</div>    
+												</div>
+												
+											</div>
+											 
+											<div class="field clearfix">
+												<label for="user_captcha">Validation code</label>
+												<div class="input-box clearfix">
+													<input type="text" name="user_captcha"  autocomplete="off"  class="input-text required-entry <?php if (!empty($this->errorMessages) && isset($this->postVariables['register'] )) echo 'validation-failed'; ?>" />
+													<div class="validation-advice" style="">
+														<?php if (isset($this->errorMessages['captcha_error'])) echo $this->errorMessages['captcha_error']; ?>
+													</div>
+												</div>
+												
+											</div>
+											
+											
+										</div>
+										</li>
+									</ul>
+							</div>
+							<div class="buttons-set form-buttons clearfix">
+								<p class="required">* Required Fields</p>
+								<p class="back-link"><a href="../index.php"><small>&laquo; </small>Back</a></p>
+								<input type="submit"  class="button" name="register" value="Register" />
+							</div>
+						</form>
+					</div>
+				</div>
+		</div>
+	</div>
+</section>
